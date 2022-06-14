@@ -2,11 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    font-family: Roboto,sans-serif;
+body {
+    font-family: Roboto, sans-serif;
 }
 
 @font-face {
     font-family: "Roboto";
     src: url("assets/fonts/robot/Roboto-Regular.ttf");
+}
+
+.movies > a:nth-child(3n+2) {
+    margin: 0 69px;
+}
+
+.block-ellipsis {
+    display: -webkit-box;
+    font-size: 14px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
