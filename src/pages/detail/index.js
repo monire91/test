@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import API from "../../api";
-import Button from "../../components/common/button";
+
 
 const Detail = () => {
     let { id } = useParams();
     const [movie,setMovie]=useState('')
+    const [credits,setCredits]=useState('')
     useEffect(() => {
         API.get()
 
@@ -14,12 +15,17 @@ const Detail = () => {
                 console.log("single movie res: ",res.data)
                 setMovie(res.data)
             })
+        API.get(`/movie/${id}/credits?api_key=65c777caa18dc18e557b9e42dbc46d62`)
+            .then(res => {
+                console.log("credits res: ",res.data)
+                setCredits(res.data)
+            })
     }, [])
     return (
         <div>
             <div className='bg-grey rounded-md pt-27 pb-25 pl-81 pr-62 flex items-center mb-119' >
-                <Button title='back'/>
-                <div>
+                <Link to='/' className='w-92 bg-blue text-white'>Back</Link>
+                <div className='ml-64'>
                     <h3>{movie.title}</h3>
                     <p>{movie.tagline}</p>
                 </div>
@@ -54,10 +60,22 @@ const Detail = () => {
                             <span>{` ${item.name}, `}</span>
                         ))}
                     </div>
+                    <div className='flex w-full'>
+                        <p className='mr-auto'>IMDB Link</p>
+                        <a href={`https://imdb.com/title/${movie.imdb_id}`} target="_blank" >Link</a>
+                    </div>
+                    <div className='flex w-full'>
+                        <p className='mr-auto'>Homepages Link</p>
+                        <a href={movie.homepage} target="_blank" >Link</a>
+                    </div>
                 </div>
             </div>
-            detail page
-            {id}
+            <p>{movie.overview}</p>
+            <p>Credits</p>
+            {credits?.cast?.slice(0, 10)?.map((item,i)=>(
+                <span>{` ${item?.original_name}, `}</span>
+            ))}
+            <span>{credits?.cast?.length>=10 && `and ${credits?.cast?.length-10} more`}</span>
         </div>
     );
 };
