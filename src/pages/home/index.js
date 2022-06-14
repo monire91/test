@@ -26,7 +26,6 @@ const Home = () => {
                     <Button title='Search'/>
                 </div>
             </div>
-            {/*<div className='flex flex-wrap justify-between after:content-[""] after:flex-auto'>*/}
             <div className='flex flex-wrap movies'>
                 {movies?.results?.map(item => (
                     <Card key={item.id} movie={item} genres={genres}/>
