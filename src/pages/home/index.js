@@ -35,7 +35,7 @@ const Home = () => {
             </div>
             <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} setMovies={setMovies}/>
             <span
-                className='text-grey4 block text-center'>Showing results {`${currentPage * 20 - 21}-${currentPage * 20}`}</span>
+                className='text-grey4 block text-center'>Showing results {`${currentPage * 20 - 20 + 1}-${currentPage * 20}`}</span>
         </div>
     );
 };
