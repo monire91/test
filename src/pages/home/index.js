@@ -20,7 +20,7 @@ const Home = () => {
     }, [])
 
     return (
-        <div>
+        <div className='pb-90'>
             <div className='bg-grey rounded-md pt-27 pb-25 pl-81 pr-62 flex items-center mb-119'>
                 <span className='mr-29'>Search by release date:</span>
                 <input className='w-221 h-33 border-grey1 border-1 p-3'/>
@@ -34,6 +34,8 @@ const Home = () => {
                 ))}
             </div>
             <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} setMovies={setMovies}/>
+            <span
+                className='text-grey4 block text-center'>Showing results {`${currentPage === 1 ? 1 : currentPage * 20 - 20}-${currentPage * 20}`}</span>
         </div>
     );
 };

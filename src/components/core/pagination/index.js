@@ -11,7 +11,7 @@ const Pagination = ({currentPage, setCurrentPage,setMovies}) => {
     }
 
     return (
-        <div className='flex mb-14'>
+        <div className='flex justify-center mb-14'>
             <button className={`font-bold ${currentPage > 1 ? 'active text-blue1' : 'pointer-events-none text-grey3'}`}
                     onClick={() => getPage(currentPage - 1)}>Previous Page
             </button>

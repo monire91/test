@@ -11,6 +11,7 @@ module.exports = {
                 'grey1': '#cfcfcf',
                 'grey2': '#F1F1F1',
                 'grey3': '#6A6A6A',
+                'grey4': '#989898',
                 'black': '#4E4E4E'
 
             },
@@ -25,6 +26,7 @@ module.exports = {
                 '27': '27px',
                 '62': '62px',
                 '81': '81px',
+                '90': '90px',
             },
             margin: {
                 '3': '3px',
@@ -49,7 +51,6 @@ module.exports = {
                 '128': '128px',
                 '221': '221px',
                 '295': '295px',
-                '33': '33.33%'
             },
             borderRadius: {
                 '100': '100px'
